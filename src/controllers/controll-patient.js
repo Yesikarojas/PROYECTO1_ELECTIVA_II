@@ -44,7 +44,7 @@ module.exports = {
     deletePatient : async(req, res) =>{
         const {id} = req.params
         try{
-            const result = await Patient.findByIdAndDelete(id)
+            const result = await Patient.findOneAndDelete(id)
             res.status(200).json({"result":true, "id":id})
         }catch{
             res.status(500).json({"result":false, "data":e.toString()})

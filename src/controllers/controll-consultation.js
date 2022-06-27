@@ -59,7 +59,7 @@ module.exports = {
     deleteConsultation : async(req, res) =>{
         const {id} = req.params
         try{
-            const result = await Consultation.findByIdAndDelete(id)
+            const result = await Consultation.findOneAndDelete(id)
             res.status(200).json({"result":true, "id":id})
         }catch{
             res.status(500).json({"result":false, "data":e.toString()})
