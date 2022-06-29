@@ -7,13 +7,14 @@ const {
     getConsultation,
     addConsultation,
     deleteConsultation,
-    replaceConsultation,
+    updateConsultation
 } = require('../controllers/controll-consultation')
 
 router.get('/',index)
-router.get('/:nit',getConsultation)
-router.post('/:nit', addConsultation)
-router.delete('/:nit', deleteConsultation)
+router.get('/:id',getConsultation)
+router.post('/', addConsultation)
+router.delete('/:id', deleteConsultation)
+router.patch('/:id',updateConsultation)
 
 
 module.exports = router

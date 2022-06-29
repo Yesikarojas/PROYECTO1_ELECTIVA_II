@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const {Schema} = mongoose
 
 const ConsultationSchema = new Schema({
-    nit: {
+    id: {
         type: String,
         required : true,
         unique : true
@@ -16,11 +16,18 @@ const ConsultationSchema = new Schema({
         type: Date,
         required : true
     },
-    patient : 
-        {
-            type : Schema.Types.ObjectId,
-            ref : 'patient'
-        }     
+    reason : {
+        type: String,
+        required : true
+    },
+    patient : {
+        type : Schema.Types.ObjectId,
+        ref : 'patient'
+    },
+    doctor : {
+        type : Schema.Types.ObjectId,
+        ref : 'doctor'
+    }   
     
 })
 

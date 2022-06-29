@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const {Schema} = mongoose
 
 const PatientSchema = new Schema({
-    nit: {
+    id: {
         type: String,
         required : true,
         unique : true
@@ -26,17 +26,10 @@ const PatientSchema = new Schema({
         type: String,
         required : true
     },
-    doctor :
-        {
-            type : Schema.Types.ObjectId,
-            ref : 'doctor'
-        } ,
-    consultation : [
-        {
-            type : Schema.Types.ObjectId,
-            ref : 'consultation'
-        }  
-    ]
+    gender : {
+        type: Boolean,
+        required : true
+    }
 })
 
 module.exports = mongoose.model('patient',PatientSchema)
