@@ -25,8 +25,8 @@ module.exports = {
     addConsultation : async (req, res) => {
         const {id, office, dateConsult, reason, patient, doctor} = req.body
         try{
-            const pat = await Patient.findById(patient)
-            const doc = await Doctor.findById(doctor)
+            const pat = await Patient.findOne({"id":patient})
+            const doc = await Doctor.findOne({"id":doctor})
             const temp = {id, office, dateConsult, reason}
             const consult = new Consultation(temp)
             consult.patient = pat
