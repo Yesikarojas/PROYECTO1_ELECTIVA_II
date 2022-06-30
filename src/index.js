@@ -11,6 +11,9 @@ app.use(express.json())
 //settings
 app.set('port', process.env.PORT || 3000)
 
+const cors = require('cors');
+app.use(cors())
+
 //routing
 app.use('/patients', require('./routes/patient'))
 app.use('/doctors', require('./routes/doctor'))
